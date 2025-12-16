@@ -1,6 +1,7 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React from "react";
-// import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 // const RegisterForm = () => {
@@ -102,6 +103,8 @@ const RegisterForm = () => {
             placeholder="johndoe@mail.com"
           />
         </div>
+
+        
         {/* Password input */}
         <div className="flex flex-col gap-1">
           <label className="text-[16px] font-semibold" htmlFor="password">
@@ -120,7 +123,7 @@ const RegisterForm = () => {
           type="submit"
           className="bg-blue-500 p-3 text-white font-bold text-lg rounded mt-10 cursor-pointer"
         >
-          Login
+          Register
         </button>
       </form>
     </div>
