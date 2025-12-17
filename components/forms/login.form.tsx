@@ -1,10 +1,16 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import Input from "../common/ui/inputs/input";
 import { loginSchema } from "@/schemas/auth.schema";
 import { ILogin } from "@/types/auth.types";
-import Button from "../common/ui/button/button";
+import Button from "../common/ui/buttons/button";
+import { login } from '../../api/auth.api';
+import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+
 
 // ! without react-hook-form
 // const LoginForm = () => {
@@ -57,6 +63,8 @@ import Button from "../common/ui/button/button";
 // });
 
 const LoginForm = () => {
+
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -71,10 +79,54 @@ const LoginForm = () => {
     mode: "all",
   });
 
-  const onSubmit = (data: ILogin) => {
-    //
-    console.log("submit", data);
-    reset();
+  // mutation function refactored
+
+  // const login = async (data: ILogin) => {
+  //   try {
+  //     const response = await axios.post(
+  //       "https://localhost:8080/api/auth/login",
+  //       data
+  //     );
+  //     console.log(response);
+  //     return response.data;
+  //     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  //   } catch (error: any) {
+  //     throw error.response;
+  //   }
+  // };
+
+  // ! React query mutation
+  const { mutate, isPending } = useMutation({
+    mutationFn: login,
+    onSuccess: (response) => {
+      //? toast message
+      toast.success(response.message || 'Login Success')
+
+      //? redirect to landing page
+      router.replace('/')
+      //? reset from
+      reset()
+    },
+    onError: (error) => {
+      //? toast error message
+      toast.error(error.message || 'Login Failed')
+
+    }
+  })
+  // ! On form Submit
+  const onSubmit = async (data: ILogin) => {
+    // console.log("submit", data);
+    // reset();
+
+    // ? call mutation function
+    // try {
+    //   const response = await login (data)
+    //   console.log("onsubmit", response);
+
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    mutate(data);
   };
 
   console.log(errors);
@@ -106,7 +158,11 @@ const LoginForm = () => {
         {/* <button className="bg-blue-500 p-3 text-white font-bold text-lg rounded mt-10 cursor-pointer">
           Login
         </button> */}
-        <Button button="Login" />
+          <Button
+          disabled={isPending}
+          label={isPending ? 'Logging In' : "Login"}
+          type="submit"
+        />
       </form>
       <div>
         <p className="text-blue-500 mt-1 cursor-pointer text-center text-[14px]">
