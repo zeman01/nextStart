@@ -17,10 +17,9 @@ import api from '.'
 
 //?   register user
 
-export const register = async (data: IRegister) =>{
+export const register = async (data: Partial<IRegister>) =>{
   try {
     const response = await api.post('/auth/register', data);
-      console.log(response)
       return response.data
   } catch (error: any) {
     throw error.response.data

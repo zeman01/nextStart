@@ -11,6 +11,7 @@ type IProps = {
   name: string;
   type?: "text" | "email" | "number" | "password";
   placeholder?: string;
+  required?: boolean;
 };
 
 const Select: FC<IProps> = ({
@@ -21,27 +22,32 @@ const Select: FC<IProps> = ({
   error,
   type = "text", //! default prop value
   placeholder = "start typing",
+  required = false,
 }) => {
   return (
-    <div>
-      <div>
-        <label htmlFor={id}>{label}</label>
+    <>
+      <div className="flex flex-col gap-1">
+        {/* label and icon */}
+        <div className="flex">
+          <label className="text-[16px] font-semibold" htmlFor={id}>
+            {label}
+          </label>
+          {required && <LuAsterisk className="text-red-500" />}
+        </div>
         <select
           {...register(name)}
-          className={`border  rounded-sm px-2 py-3  ${
-            error
-              ? "focus:outline-red-500 border-red-500"
-              : "focus:outline-blue-400 border-gray-400"
-          }`}
-          name={name}
-          id={id}
+          className="border border-gray-400 rounded-sm px-2 py-3 focus:outline-blue-400"
         >
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Others">Others</option>
+          {Object.entries(GENDER).map(([key, value]) => {
+            return (
+              <option key={key} value={value}>
+                {value}
+              </option>
+            );
+          })}
         </select>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -10,6 +10,7 @@ type IProps = {
   name: string;
   type?: "text" | "email" | "number" | "password";
   placeholder?: string;
+  required?: boolean;
 };
 
 const Input: FC<IProps> = ({
@@ -20,6 +21,7 @@ const Input: FC<IProps> = ({
   error,
   type = "text", //! default prop value
   placeholder = "start typing",
+  required = false
 }) => {
   return (
     <div className="flex flex-col gap-1">
@@ -28,7 +30,7 @@ const Input: FC<IProps> = ({
         <label className="text-[16px] font-semibold" htmlFor={id}>
           {label}
         </label>
-        <LuAsterisk className="text-red-500" />
+        { required && <LuAsterisk className="text-red-500" />}
       </div>
       <input
         {...register(name)}
