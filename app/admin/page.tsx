@@ -1,7 +1,7 @@
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full">
+    <main className="h-full w-full">
    
       <h1>Home page</h1>
 

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { cn } from "@/utils/tw-merge.util";
 import React, { FC } from "react";
 import { LuAsterisk } from "react-icons/lu";
 
@@ -10,7 +11,7 @@ type IProps = {
   name: string;
   type?: "text" | "email" | "number" | "password";
   placeholder?: string;
-  required?: boolean;
+  required?:boolean
 };
 
 const Input: FC<IProps> = ({
@@ -30,15 +31,15 @@ const Input: FC<IProps> = ({
         <label className="text-[16px] font-semibold" htmlFor={id}>
           {label}
         </label>
-        { required && <LuAsterisk className="text-red-500" />}
+        {required && <LuAsterisk className="text-red-500" />}
       </div>
       <input
         {...register(name)}
-        className={`border  rounded-sm px-2 py-3  ${
-          error
-            ? "focus:outline-red-500 border-red-500"
-            : "focus:outline-blue-400 border-gray-400"
-        }`}
+        className={cn(
+          'border  rounded-sm px-2 py-3',
+          error ? "focus:outline-red-500 border-red-500" : "focus:outline-blue-400 border-gray-400",
+        )}
+        
         id={id}
         type={type}
         placeholder={placeholder}

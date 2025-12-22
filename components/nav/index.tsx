@@ -10,10 +10,10 @@ const NavBar = () => {
       {/* logo */}
       <div>
         <Image
-          src={"/logo.svg"}
+          src={"/logo.webp"}
           alt="logo"
-          height={500}
-          width={500}
+          height={400}
+          width={400}
           className="h-16 w-24"
         />
       </div>

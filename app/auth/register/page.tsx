@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 
-const Register = () => {
+const RegisterPage = () => {
   return (
     <main className=" h-full w-full flex justify-center items-center">
       <div className="border border-blue-500 p-5 min-w-150 min-h-100 rounded-lg shadow">
@@ -29,4 +29,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterPage;

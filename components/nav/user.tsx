@@ -7,7 +7,7 @@ const UserSection = () => {
         {/* image */}
         <div className="h-12 w-12 border-2 border-blue-500 rounded-full p-1">
           <Image
-            src={"/logo.svg"}
+            src={"/logo.webp"}
             alt="logo"
             height={500}
             width={500}

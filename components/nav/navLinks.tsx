@@ -1,6 +1,8 @@
+"use client";
 
-
-import Link from 'next/link';
+import { cn } from "@/utils/tw-merge.util";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 const links = [
   {
     label: "Home",
@@ -18,20 +20,30 @@ const links = [
     label: "Contact Us",
     link: "/contact",
   },
-]
+];
 
 const NavLinks = () => {
+  const pathName = usePathname();
   return (
-     <div className="flex gap-2 tracking-wider">
-            {links.map((item, index) => {
-              return (
-                <Link href={item.link} key={index}>
-                  <span className="text-lg font-semibold text-gray-700">{item.label}</span>
-                </Link> 
-              );
-            })}
-          </div>
-  )
-}
+    <div className="flex gap-2 tracking-wider">
+      {links.map((item, index) => {
+        const isActive = pathName === item.link;
 
-export default NavLinks
+        return (
+          <Link href={item.link} key={index}>
+            <span
+              className={cn(
+                "text-lg font-semibold text-gray-700 hover:text-blue-500",
+                isActive ? "text-blue-600" : ""
+              )}
+            >
+              {item.label}
+            </span>
+          </Link>
+        );
+      })}
+    </div>
+  );
+};
+
+export default NavLinks;
