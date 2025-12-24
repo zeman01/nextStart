@@ -5,7 +5,7 @@ import CategoryList from './category-list'
 const CategorySection = () => {
   return (
       <section className='my-10'>
-          {/* heading section */}
+          {/* heaing section */}
           <ComponentHeading
               title='Featured Categories'
               sub_title='Explore products by all our featured categories'

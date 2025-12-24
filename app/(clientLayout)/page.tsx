@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <main className="min-h-screen w-full">
       <Hero />
-      <CategorySection/>
-      <NewArrivals/>
+      <CategorySection />
+      <NewArrivals />
     </main>
   );
 }
