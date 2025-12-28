@@ -1,11 +1,10 @@
 import ComponentHeading from '@/components/common/component-heading'
-import React from 'react'
 import NewArraivalsList from './list'
 
 const NewArraivals = () => {
     
   return (
-      <section>
+      <section  className='my-20'>
           {/* header */}
           <ComponentHeading
               title='New Arrivals'

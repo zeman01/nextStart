@@ -1,24 +1,23 @@
 'use client'
 
-import { getNewArrivals } from '@/api/product.api'
+import { getFeatured } from '@/api/product.api'
 import ComponentLoading from '@/components/common/component-loading'
 import DataNotFound from '@/components/common/data-not-found'
 import ProductCard from '@/components/product/card'
 import { IProduct } from '@/types/product.types'
 import { useQuery } from '@tanstack/react-query'
-import React from 'react'
 
 
 
-const NewArraivalsList = () => {
-  
+const FeaturedProductList = () => {
+
   const { data, isLoading } = useQuery({
-    queryFn: getNewArrivals,
-    queryKey: ['get-new-arrivals-products']
+    queryFn: getFeatured,
+    queryKey: ['get-featured-products']
   })
 
   return (
-   <div>
+    <div>
       {isLoading && <ComponentLoading/>}
       {!isLoading && data?.data?.length > 0 && <div className='mt-5 grid grid-cols-5 gap-3'>
 
@@ -34,4 +33,4 @@ const NewArraivalsList = () => {
   )
 }
 
-export default NewArraivalsList
+export default FeaturedProductList

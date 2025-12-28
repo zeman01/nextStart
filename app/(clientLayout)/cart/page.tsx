@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
-const Cart = () => {
+const Page = () => {
   return (
-    <main className="max-xl:">
-      <h1>Cart</h1>
-    </main>
-  );
-};
+      <main className='h-full min-h-[85vh]'>
+           <div>Cart Page</div>
+   </main>
+  )
+}
 
-export default Cart;
+export default Page

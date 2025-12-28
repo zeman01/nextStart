@@ -1,10 +1,10 @@
-import Footer from '@/components/footer/index'
+import Footer from '@/components/footer/indes'
 import NavBar from '@/components/nav'
 import React from 'react'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <main className='max-w-360! mx-auto'>
+        <main className='max-w-380! mx-auto mt-1'>
 
             {/* nav bar */}
             <NavBar />

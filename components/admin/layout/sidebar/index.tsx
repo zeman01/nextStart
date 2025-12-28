@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import SidebarLinks from './sidebar-links'
+import SidebarLinks from './sibar-links'
 
 const SideBar = () => {
     return (
