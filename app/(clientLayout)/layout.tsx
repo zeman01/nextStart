@@ -1,4 +1,4 @@
-import Footer from '@/components/footer/indes'
+import Footer from '@/components/footer/.'
 import NavBar from '@/components/nav'
 import React from 'react'
 

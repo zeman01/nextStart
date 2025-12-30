@@ -1,15 +1,14 @@
 import React from "react";
-import RegisterForm from '@/components/forms/register.form'
-import { Metadata } from 'next';
-import Link from 'next/link'
+import { Metadata } from "next";
+import Link from "next/link";
+import RegisterForm from "@/components/forms/register.form";
 
 export const metadata: Metadata = {
   title: "E-commerce | Register",
   description: "User Register Page ",
 };
 
-
-const RegisterPage = () => {
+const Page = () => {
   return (
     <main className=" h-full w-full flex justify-center items-center">
       <div className="border border-blue-500 p-5 min-w-150 min-h-100 rounded-lg shadow">
@@ -29,4 +28,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default Page;

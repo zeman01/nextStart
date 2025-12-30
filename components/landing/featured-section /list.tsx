@@ -1,6 +1,6 @@
 'use client'
 
-import { getFeatured } from '@/api/product.api'
+import { getAllFeaturedProducts } from '@/api/products.api'
 import ComponentLoading from '@/components/common/component-loading'
 import DataNotFound from '@/components/common/data-not-found'
 import ProductCard from '@/components/product/card'
@@ -12,7 +12,7 @@ import { useQuery } from '@tanstack/react-query'
 const FeaturedProductList = () => {
 
   const { data, isLoading } = useQuery({
-    queryFn: getFeatured,
+    queryFn: getAllFeaturedProducts,
     queryKey: ['get-featured-products']
   })
 

@@ -5,9 +5,9 @@ import { TbCurrencyRupeeNepalese } from "react-icons/tb";
 import { FaRegHeart } from "react-icons/fa";
 import Link from 'next/link';
 import { useMutation, QueryClient, useQueryClient } from '@tanstack/react-query';
-import { addToWishlist } from '@/api/whishlist.api';
 import toast from 'react-hot-toast';
 import { FaRegTrashAlt } from "react-icons/fa";
+import { addToWishlist } from '@/api/wishlist.api';
 
 type IProps = {
   product: IProduct,
@@ -19,7 +19,7 @@ const ProductCard: React.FC<IProps> = ({ product ,wishlist=false}) => {
   const queryClient = useQueryClient()
   // mutation
   const { mutate, isPending } = useMutation({
-    mutationFn: addToWishlist,
+    mutationFn: addToWishlist ,
     onSuccess: (response) => {
       toast.success(response.message || 'Product added list')
       queryClient.invalidateQueries({

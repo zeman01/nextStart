@@ -1,6 +1,8 @@
 
 import AdminHeader from '@/components/admin/layout/header'
 import SideBar from '@/components/admin/layout/sidebar'
+import withAuth from '@/hoc/with-auth.hoc'
+import { USER_ROLE } from '@/types/global.types'
 import React from 'react'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -22,4 +24,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     )
 }
 
-export default Layout
+const LayoutWithAuth = withAuth(Layout, [USER_ROLE.ADMIN]);
+
+export default LayoutWithAuth

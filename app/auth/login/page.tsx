@@ -1,7 +1,7 @@
-import LoginForm from "@/components/forms/login.form";
 import { Metadata } from "next";
 import React from "react";
 import Link from "next/link";
+import LoginForm from "@/components/forms/login.forms";
 
 export const metadata: Metadata = {
   title: "E-commerce | Login",

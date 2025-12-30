@@ -1,15 +1,19 @@
-import React from 'react'
+import ComponentHeading from "@/components/common/component-heading";
+import ProductDetail from "@/components/product-detail";
+import React from "react";
 
 type Props = {
-    params: Promise<{id:string}>
-}
+  params: Promise<{ id: string }>;
+};
 
-const Page = (props: Props) => {
+const Page = async ({ params }: Props) => {
+  const id = (await params)?.id;
   return (
-      <main className='w-full h-[85vh]'>
-          <h1>Product view Page</h1>
+    <main className="w-full h-[85vh]">
+      <ComponentHeading title={"Product Detail"} />
+      <ProductDetail id={id} />
     </main>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

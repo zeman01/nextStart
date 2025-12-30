@@ -23,7 +23,7 @@ const RegisterForm = () => {
             last_name: '',
             email: '',
             password: '',
-            confirm_password: '',
+            confirmPassword: '',
             phone: '',
             gender: GENDER.MALE,
 
@@ -109,7 +109,7 @@ const RegisterForm = () => {
                     label='Confirm Password'
                     placeholder='Retype your password'
                     register={register}
-                    error={errors?.confirm_password?.message}
+                    error={errors?.confirmPassword?.message}
                 />
 
                 {/* gender input */}

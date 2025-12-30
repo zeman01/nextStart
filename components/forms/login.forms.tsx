@@ -6,16 +6,14 @@ import Input from "../common/ui/inputs/input";
 import { loginSchema } from "@/schemas/auth.schema";
 import { ILogin } from "@/types/auth.types";
 import Button from "../common/ui/buttons/button";
-import { login } from '../../api/auth.api';
-import { useMutation } from "@tanstack/react-query";
+import { login } from "../../api/auth.api";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-
-
 const LoginForm = () => {
-
-  const router = useRouter()
+  const router = useRouter();
+  const queryClient = useQueryClient();
   const {
     register,
     handleSubmit,
@@ -35,23 +33,25 @@ const LoginForm = () => {
     mutationFn: login,
     onSuccess: (response) => {
       //? toast message
-      toast.success(response.message || 'Login Success')
+      toast.success(response.message || "Login Success");
+
+      // ! check auth when login success
+      queryClient.invalidateQueries({ queryKey: ["check_auth"] });
 
       //? redirect to landing page
-      router.replace('/')
+      router.replace("/");
       //? reset from
-      reset()
+      reset();
     },
     onError: (error) => {
       //? toast error message
-      toast.error(error.message || 'Login Failed')
+      toast.error(error.message || "Login Failed");
+    },
+  });
 
-    }
-  })
-
-  //! on form submit 
+  //! on form submit
   const onSubmit = async (data: ILogin) => {
-    mutate(data)
+    mutate(data);
   };
 
   console.log(errors);
@@ -78,17 +78,14 @@ const LoginForm = () => {
           placeholder="Enter password"
           error={errors?.password?.message}
           type="password"
-
-
         />
 
         <Button
           disabled={isPending}
-          label={isPending ? 'Loggin In' : "Login"}
+          label={isPending ? "Logging In" : "Login"}
           type="submit"
         />
       </form>
-      <div></div>
     </div>
   );
 };

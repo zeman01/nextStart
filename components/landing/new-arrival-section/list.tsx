@@ -1,6 +1,6 @@
 'use client'
 
-import { getNewArrivals } from '@/api/product.api'
+import { getAllNewArrivals } from '@/api/products.api'
 import ComponentLoading from '@/components/common/component-loading'
 import DataNotFound from '@/components/common/data-not-found'
 import ProductCard from '@/components/product/card'
@@ -10,10 +10,10 @@ import React from 'react'
 
 
 
-const NewArraivalsList = () => {
+const NewArrivalsList = () => {
   
   const { data, isLoading } = useQuery({
-    queryFn: getNewArrivals,
+    queryFn: getAllNewArrivals,
     queryKey: ['get-new-arrivals-products']
   })
 
@@ -34,4 +34,4 @@ const NewArraivalsList = () => {
   )
 }
 
-export default NewArraivalsList
+export default NewArrivalsList

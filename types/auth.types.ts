@@ -1,4 +1,4 @@
-import { GENDER, IImage } from "@/types/global.types";
+import { GENDER, IImage, USER_ROLE } from "@/types/global.types";
 // ?login
 export type ILogin = {
   email: string;
@@ -18,5 +18,6 @@ export type IRegister = {
 
 export type IUserResponse = IRegister & {
     _id: string;
-    profile_image?:IImage
+    profile_image?:IImage,
+    role: USER_ROLE
 }

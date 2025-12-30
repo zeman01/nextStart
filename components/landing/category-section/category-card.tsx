@@ -12,7 +12,7 @@ const Card: React.FC<IProps> = ({ category }) => {
       {/* image */}
       <div className='h-full aspect-square rounded-sm overflow-clip '>
         <Image
-          src={category?.logo?.path}
+          src={category?.image.path}
           alt={category?.name}
           height={400}
           width={400}

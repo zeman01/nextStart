@@ -1,7 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import NavLinks from "./navlinks";
+import NavLinks from "./navLinks";
 import UserSection from "./user";
 import IconSection from "./icon-section";
 
@@ -13,7 +12,7 @@ const NavBar = () => {
             {/* logo */}
             <div>
                 <Image
-                    src={"/logo.svg"}
+                    src={"/logo.webp"}
                     alt="logo"
                     height={500}
                     width={500}

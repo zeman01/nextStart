@@ -2,14 +2,14 @@
 import React from 'react'
 import ProductCard from '../product/card'
 import { useQuery } from '@tanstack/react-query'
-import { getWishlists } from '@/api/whishlist.api'
 import { IWishlist } from '@/types/wishlist.types'
+import { getWishlist } from '@/api/wishlist.api'
 
 const WishLists = () => {
 
     // get request
     const {data , } = useQuery({
-        queryFn: getWishlists,
+        queryFn: getWishlist,
         queryKey:['wishlist']
     })
 

@@ -1,7 +1,7 @@
 import ComponentHeading from '@/components/common/component-heading'
-import NewArraivalsList from './list'
+import NewArrivalsList from './list'
 
-const NewArraivals = () => {
+const NewArrivals = () => {
     
   return (
       <section  className='my-20'>
@@ -13,10 +13,10 @@ const NewArraivals = () => {
           />
 
           {/* list */}
-          <NewArraivalsList/>
+          <NewArrivalsList/>
           
     </section>
   )
 }
 
-export default NewArraivals
+export default NewArrivals
